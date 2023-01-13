@@ -42,15 +42,20 @@ namespace GAME
             this.textBox1.Font = new System.Drawing.Font("Courier New", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Black;
             this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Location = new System.Drawing.Point(9, 10);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(512, 162);
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(363, 125);
             this.textBox1.TabIndex = 0;
             this.textBox1.TabStop = false;
             this.textBox1.WordWrap = false;
             // 
             // welcome
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             this.welcome.Interval = 20;
             this.welcome.Tick += new System.EventHandler(this.welcome_Tick);
@@ -62,14 +67,16 @@ namespace GAME
             // 
             // flying
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(536, 186);
+            this.ClientSize = new System.Drawing.Size(380, 142);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "flying";
             this.Text = "flying";
             this.Load += new System.EventHandler(this.Form1_Load);

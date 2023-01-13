@@ -361,6 +361,26 @@ namespace GAME
                 O = 2;
                 textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
             }
+            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Up:
+                    POS = POS + 1;
+                    break;
+                case Keys.Down:
+                    POS = POS + -1;
+                    break;
+            }
+            textBox1.Text = POS.ToString();
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
