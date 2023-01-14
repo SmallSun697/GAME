@@ -41,7 +41,7 @@ namespace GAME
 
         private void speed_Tick(object sender, EventArgs e)
         {
-            p8 = R8.Next(-1,8);
+            p8 = R8.Next(-1, 8);
             if (menu == 22)
             {
                 //"                             "
@@ -111,7 +111,7 @@ namespace GAME
             {
                 O1 = s8;
             }
-            else if(b81 == false && O != 1) 
+            else if (b81 == false && O != 1)
             {
                 O1 = " ";
             }
@@ -163,7 +163,7 @@ namespace GAME
                 switch (e.KeyCode)
                 {
                     case Keys.Up:
-                        if (O >W)
+                        if (O > W)
                         {
                             O--;
                         }
@@ -174,6 +174,46 @@ namespace GAME
                             O++;
                         }
                         break;
+                }
+                if (b81 == true)
+                {
+                    O1 = s8;
+                }
+                else if (b81 == false && O != 1)
+                {
+                    O1 = " ";
+                }
+                if (b82 == true)
+                {
+                    O2 = s8;
+                }
+                else if (b82 == false && O != 2)
+                {
+                    O2 = " ";
+                }
+                if (b83 == true)
+                {
+                    O3 = s8;
+                }
+                else if (b83 == false && O != 3)
+                {
+                    O3 = " ";
+                }
+                if (b84 == true)
+                {
+                    O4 = s8;
+                }
+                else if (b84 == false && O != 4)
+                {
+                    O4 = " ";
+                }
+                if (b85 == true)
+                {
+                    O5 = s8;
+                }
+                else if (b85 == false && O != 5)
+                {
+                    O5 = " ";
                 }
                 switch (O)
                 {
@@ -260,7 +300,7 @@ namespace GAME
                 if (iw1 != 0)
                 {
                     s1 = "";
-                    for(int a = iw1; a > 0; a--)
+                    for (int a = iw1; a > 0; a--)
                     {
                         s1 += " ";
                     }
@@ -323,4 +363,4 @@ namespace GAME
             }
         }
     }
-}//痾  傳出去啊!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
