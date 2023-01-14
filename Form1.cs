@@ -37,6 +37,7 @@ namespace GAME
         //字串提取
         string sg1 = "", sg2 = "", sg3 = "", sg4 = "", sg5 = "";
         int sgt;
+        int POS,POS1;
 
 
         private void speed_Tick(object sender, EventArgs e)
