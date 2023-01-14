@@ -43,24 +43,67 @@ namespace GAME
         //死亡
         bool dead;
         int Gs = 25;
+        //設定
+        int sd;
 
         private void speed_Tick(object sender, EventArgs e)
         {
-            if (sgt < 200)
+            if (sd == 1)
             {
-                speed.Interval = 200;
+                if (sgt < 200)
+                {
+                    speed.Interval = 200;
+                }
+                else if (sgt < 400)
+                {
+                    speed.Interval = 150;
+                }
+                else if (sgt < 600)
+                {
+                    speed.Interval = 100;
+                }
+                else if (sgt > 800)
+                {
+                    speed.Interval = 50;
+                }
             }
-            else if (sgt < 400)
+            if (sd == 2)
             {
-                speed.Interval = 150;
+                if (sgt < 150)
+                {
+                    speed.Interval = 200;
+                }
+                else if (sgt < 300)
+                {
+                    speed.Interval = 150;
+                }
+                else if (sgt < 500)
+                {
+                    speed.Interval = 80;
+                }
+                else if (sgt > 700)
+                {
+                    speed.Interval = 50;
+                }
             }
-            else if (sgt < 600)
+            if (sd == 3)
             {
-                speed.Interval = 100;
-            }
-            else if (sgt > 800)
-            {
-                speed.Interval = 50;
+                if (sgt < 150)
+                {
+                    speed.Interval = 150;
+                }
+                else if (sgt < 300)
+                {
+                    speed.Interval = 100;
+                }
+                else if (sgt < 500)
+                {
+                    speed.Interval = 60;
+                }
+                else if (sgt > 700)
+                {
+                    speed.Interval = 30;
+                }
             }
             if (dead == true)
             {
@@ -70,6 +113,7 @@ namespace GAME
                 s3 = "";
                 s4 = "";
                 s5 = "";
+                speed.Interval = 100;
                 if (Gs > 0)
                 {
                     textBox1.BackColor = Color.Black;
@@ -258,7 +302,6 @@ namespace GAME
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -269,6 +312,7 @@ namespace GAME
             textBox1.BackColor = Color.White;
             textBox1.ForeColor = Color.Black;
             textBox1.Text = "";
+            sd = 1;
             speed.Enabled = false;
             dead = false;
             O_TF = false;
@@ -290,7 +334,7 @@ namespace GAME
                         s1 += " ";
                     }
                     iw1--;
-                    s1 += "         welcome";
+                    s1 += "        welcome";
                 }
                 if (iw2 != 0)
                 {
@@ -300,7 +344,7 @@ namespace GAME
                         s2 += " ";
                     }
                     iw2--;
-                    s2 += "          start";
+                    s2 += "         start";
                 }
                 if (iw3 != 0)
                 {
@@ -310,7 +354,7 @@ namespace GAME
                         s3 += " ";
                     }
                     iw3--;
-                    s3 += "       how to play";
+                    s3 += "      how to play";
                 }
                 if (iw4 != 0)
                 {
@@ -320,7 +364,7 @@ namespace GAME
                         s4 += " ";
                     }
                     iw4--;
-                    s4 += "         setting";
+                    s4 += "        setting";
                 }
                 if (iw5 != 0)
                 {
@@ -330,9 +374,9 @@ namespace GAME
                         s5 += " ";
                     }
                     iw5--;
-                    s5 += "          about";
+                    s5 += "         about";
                 }
-                textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
+                textBox1.Text = " " + s1 + "\r\n" + " " + s2 + "\r\n" + " " + s3 + "\r\n" + " " + s4 + "\r\n" + " " + s5;
             }
             else
             {
@@ -463,8 +507,71 @@ namespace GAME
                             break;
                     }
                 }
-                textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
-                if (menu == 0)
+                if (menu != 44)
+                {
+                    textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
+                }
+                if (menu == 44)
+                {
+                    if (O4 == ">")
+                    {
+                        switch (keyData)
+                        {
+                            case Keys.Left:
+                                if (sd > 1)
+                                {
+                                    sd--;
+                                }
+                                break;
+                            case Keys.Right:
+                                if (sd < 3)
+                                {
+                                    sd++;
+                                }
+                                break;
+                        }
+                        switch (sd)
+                        {
+                            case (1):
+                                s3 = "   difficulty < easy >";
+                                break;
+                            case (2):
+                                s3 = "   difficulty <normal>";
+                                break;
+                            case (3):
+                                s3 = "   difficulty <nausea>";
+                                break;
+                        }
+                    }
+                    textBox1.Text = "         setting" + "\r\n" + " " + "\r\n" + O4 + s3 + "\r\n" + " " + "\r\n" + O5 + "          <back";
+                    if (O5 == ">")
+                    {
+                        switch (keyData)
+                        {
+                            case Keys.Space:
+                                s1 = "";
+                                s2 = "";
+                                s3 = "";
+                                s4 = "";
+                                s5 = "";
+                                sg1 = "";
+                                sg2 = "";
+                                sg3 = "";
+                                sg4 = "";
+                                sg5 = "";
+                                iw1 = 25;
+                                iw2 = 28;
+                                iw3 = 31;
+                                iw4 = 34;
+                                iw5 = 37;
+                                menu = 0;
+                                textBox1.Text = s1 + "\r\n" + s2 + "\r\n" + s3 + "\r\n" + s4 + "\r\n" + s5;
+                                welcome.Enabled = true;
+                                break;
+                        }
+                    }
+                }
+                    if (menu == 0)
                 {
                     switch (keyData)
                     {
@@ -499,8 +606,24 @@ namespace GAME
                             break;
                         case 3:
                             break;
-                        case 4:
 
+                        case 4:
+                            menu = 44;
+                            O = 4;
+                            W = 4;
+                            switch (sd)
+                            {
+                                case (1):
+                                    s3 = "   difficulty < easy >";
+                                    break;
+                                case (2):
+                                    s3 = "   difficulty <normal>";
+                                    break;
+                                case (3):
+                                    s3 = "   difficulty <nausea>";
+                                    break;
+                            }
+                            textBox1.Text = "         setting" + "\r\n" + " " + "\r\n" + O4 + s3 + "\r\n" + " " + "\r\n" + O5 + "          <back";
                             break;
                         case 5:
 
