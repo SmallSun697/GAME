@@ -506,7 +506,7 @@ namespace GAME
                             O4 = " ";
                             O5 = " ";
                             W = 1;
-                            textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
+                            textBox1.Text = s1 + "\r\n" + s2 + "\r\n" + O3 + ">" + "\r\n" + s4 + "\r\n" + s5;
                             menu = 22;
                             sgt = 0;
                             speed.Enabled = true;
