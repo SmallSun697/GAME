@@ -17,9 +17,13 @@ namespace GAME
             InitializeComponent();
         }
 
-        int POS;  //POS主角位置
-
-
+        String[] CURRENT, CACHE;
+        int POS, Pos1, BARRIER;  
+        /*POS主角位置
+         *BARRIER障礙物高度
+         *CURRENT目前地圖 CACHE地圖緩存
+         * 
+        */
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
 /*            switch (e.KeyCode)
@@ -40,6 +44,12 @@ namespace GAME
         {
 
         }
+
+        private void rBarrier_Tick(object sender, EventArgs e)
+        {
+
+        }
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
@@ -51,8 +61,13 @@ namespace GAME
                     POS = POS + -1;
                     break;
             }
-            textBox1.Text = POS.ToString();
+            //textBox1.Text += "OUO";
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

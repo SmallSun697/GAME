@@ -29,7 +29,10 @@ namespace GAME
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.rBarrier = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // textBox1
@@ -42,6 +45,17 @@ namespace GAME
             this.textBox1.Size = new System.Drawing.Size(363, 125);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 300;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // rBarrier
+            // 
+            this.rBarrier.Interval = 3000;
+            this.rBarrier.Tick += new System.EventHandler(this.rBarrier_Tick);
             // 
             // flying
             // 
@@ -65,6 +79,8 @@ namespace GAME
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer rBarrier;
     }
 }
 
