@@ -678,6 +678,11 @@ namespace GAME
                             speed.Enabled = true;
                             break;
                         case 3:
+                            var formnum = new Form3();
+                            formnum.Show(this);
+                            this.clear_cursor(0);
+                            O = 2;
+                            menu = 0;
                             break;
 
                         case 4:
@@ -699,7 +704,11 @@ namespace GAME
                             textBox1.Text = "         setting" + "\r\n" + " " + "\r\n" + O4 + s3 + "\r\n" + " " + "\r\n" + O5 + "          <back";
                             break;
                         case 5:
-
+                            var formabout = new Form4();
+                            formabout.Show(this);
+                            this.clear_cursor(0);
+                            O = 2;
+                            menu = 0;
                             break;
                     }
                 }
