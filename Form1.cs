@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GAME
 {
@@ -37,11 +38,87 @@ namespace GAME
         //字串提取
         string sg1 = "", sg2 = "", sg3 = "", sg4 = "", sg5 = "";
         int sgt;
-        int POS,POS1;
-
+        //顯示修正
+        int sf0;
+        //死亡
+        bool dead;
+        int Gs = 25;
 
         private void speed_Tick(object sender, EventArgs e)
         {
+            if (sgt < 200)
+            {
+                speed.Interval = 200;
+            }
+            else if (sgt < 400)
+            {
+                speed.Interval = 150;
+            }
+            else if (sgt < 600)
+            {
+                speed.Interval = 100;
+            }
+            else if (sgt > 800)
+            {
+                speed.Interval = 50;
+            }
+            if (dead == true)
+            {
+                O1 = " ";
+                O2 = " ";
+                O3 = " ";
+                O4 = " ";
+                O5 = " ";
+                s1 = "";
+                s2 = "";
+                s3 = "";
+                s4 = "";
+                s5 = "";
+                if (Gs > 0)
+                {
+                    textBox1.BackColor = Color.Black;
+                    textBox1.ForeColor = Color.Red;
+                    for (int a = Gs; a > 0; a--)
+                    {
+                        s1 += " ";
+                        s3 += " ";
+                    }
+                    s1 += "      score " + (sgt - 31);
+                    s3 += "      YOU  DIED";
+                    textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
+                    Gs--;
+                    if (Gs != 0)
+                    {
+                        return;
+                    }
+                    Gs = 25;
+                    Thread.Sleep(5000);
+                    dead = false;
+                    O1 = " ";
+                    O2 = " ";
+                    O3 = " ";
+                    O4 = " ";
+                    O5 = " ";
+                    s1 = "";
+                    s2 = "";
+                    s3 = "";
+                    s4 = "";
+                    s5 = "";
+                    sg1 = "";
+                    sg2 = "";
+                    sg3 = "";
+                    sg4 = "";
+                    sg5 = "";
+                    iw1 = 25;
+                    iw2 = 28;
+                    iw3 = 31;
+                    iw4 = 34;
+                    iw5 = 37;
+                    speed.Enabled = false;
+                    welcome.Enabled = true;
+                    return;
+                }
+            }
             p8 = R8.Next(-1, 8);
             if (menu == 22)
             {
@@ -93,11 +170,6 @@ namespace GAME
                 sg4 += " ";
                 sg5 += s8;
             }
-            //Console.WriteLine(s1.Remove(0, 1));
-            //Console.WriteLine(s2.Remove(0, 1));
-            //Console.WriteLine(s3.Remove(0, 1));
-            //Console.WriteLine(s4.Remove(0, 1));
-            //Console.WriteLine(s5.Remove(0, 1));
             sg1 += " ";
             sg2 += " ";
             sg3 += " ";
@@ -110,7 +182,14 @@ namespace GAME
             s5 = sg5.Substring(sgt, 30);
             if (b81 == true)
             {
-                O1 = s8;
+                if (O1 == ">")
+                {
+                    dead = true;
+                }
+                else
+                {
+                    O1 = s8;
+                }
             }
             else if (b81 == false && O != 1)
             {
@@ -118,7 +197,14 @@ namespace GAME
             }
             if (b82 == true)
             {
-                O2 = s8;
+                if (O2 == ">")
+                {
+                    dead = true;
+                }
+                else
+                {
+                    O2 = s8;
+                }
             }
             else if (b82 == false && O != 2)
             {
@@ -126,7 +212,14 @@ namespace GAME
             }
             if (b83 == true)
             {
-                O3 = s8;
+                if (O3 == ">")
+                {
+                    dead = true;
+                }
+                else
+                {
+                    O3 = s8;
+                }
             }
             else if (b83 == false && O != 3)
             {
@@ -134,7 +227,14 @@ namespace GAME
             }
             if (b84 == true)
             {
-                O4 = s8;
+                if (O4 == ">")
+                {
+                    dead = true;
+                }
+                else
+                {
+                    O4 = s8;
+                }
             }
             else if (b84 == false && O != 4)
             {
@@ -142,7 +242,14 @@ namespace GAME
             }
             if (b85 == true)
             {
-                O5 = s8;
+                if (O5 == ">")
+                {
+                    dead = true;
+                }
+                else
+                {
+                    O5 = s8;
+                }
             }
             else if (b85 == false && O != 5)
             {
@@ -159,143 +266,28 @@ namespace GAME
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-/*            if (O_TF == true)
-            {
-                switch (e.KeyCode)
-                {
-                    case Keys.Up:
-                        if (O > W)
-                        {
-                            O--;
-                        }
-                        break;
-                    case Keys.Down:
-                        if (O < 5)
-                        {
-                            O++;
-                        }
-                        break;
-                }
-                if (b81 == true)
-                {
-                    O1 = s8;
-                }
-                else if (b81 == false && O != 1)
-                {
-                    O1 = " ";
-                }
-                if (b82 == true)
-                {
-                    O2 = s8;
-                }
-                else if (b82 == false && O != 2)
-                {
-                    O2 = " ";
-                }
-                if (b83 == true)
-                {
-                    O3 = s8;
-                }
-                else if (b83 == false && O != 3)
-                {
-                    O3 = " ";
-                }
-                if (b84 == true)
-                {
-                    O4 = s8;
-                }
-                else if (b84 == false && O != 4)
-                {
-                    O4 = " ";
-                }
-                if (b85 == true)
-                {
-                    O5 = s8;
-                }
-                else if (b85 == false && O != 5)
-                {
-                    O5 = " ";
-                }
-                switch (O)
-                {
-                    case 1:
-                        O1 = ">";
-                        break;
-                    case 2:
-                        O2 = ">";
-                        break;
-                    case 3:
-                        O3 = ">";
-                        break;
-                    case 4:
-                        O4 = ">";
-                        break;
-                    case 5:
-                        O5 = ">";
-                        break;
-                }
-                //if(O1 != s8 || != ">")
-                textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
-                if (menu == 0)
-                {
-                    switch (e.KeyCode)
-                    {
-                        case Keys.Space:
-                            menu = O;
-                            break;
-                    }
-                }
-                if (menu != 0)
-                {
-                    switch (menu)
-                    {
-                        case 2:
-                            s1 = "";
-                            s2 = "";
-                            s3 = "";
-                            s4 = "";
-                            s5 = "";
-                            O = 3;
-                            O1 = " ";
-                            O2 = " ";
-                            O3 = ">";
-                            O4 = " ";
-                            O5 = " ";
-                            W = 1;
-                            textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
-                            menu = 22;
-                            sgt = 0;
-                            speed.Enabled = true;
-                            break;
-                        case 3:
 
-                            break;
-                        case 4:
-
-                            break;
-                        case 5:
-
-                            break;
-                    }
-                }
-            }
-*/        }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox1.TabStop = false;
             textBox1.ReadOnly = true;
             textBox1.Enabled = false;
+            textBox1.BackColor = Color.White;
+            textBox1.ForeColor = Color.Black;
             textBox1.Text = "";
             speed.Enabled = false;
+            dead = false;
             O_TF = false;
-            W = 2;
             menu = 0;
             welcome.Enabled = true;
         }
 
         private void welcome_Tick(object sender, EventArgs e)
         {
+            textBox1.BackColor = Color.White;
+            textBox1.ForeColor = Color.Black;
             if (iw5 != 0)
             {
                 if (iw1 != 0)
@@ -353,6 +345,7 @@ namespace GAME
             else
             {
                 welcome.Enabled = false;
+                menu = O;
                 O_TF = true;
                 O1 = " ";
                 O2 = ">";
@@ -360,6 +353,7 @@ namespace GAME
                 O4 = " ";
                 O5 = " ";
                 O = 2;
+                W = 2;
                 textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
             }
             
@@ -373,80 +367,115 @@ namespace GAME
         {
             if (O_TF == true)
             {
-                switch (keyData)
+                sf0 = O;
+                if (dead == false)
                 {
-                    case Keys.Up:
-                        if (O > W)
-                        {
-                            O--;
-                        }
-                        break;
-                    case Keys.Down:
-                        if (O < 5)
-                        {
-                            O++;
-                        }
-                        break;
+                    switch (keyData)
+                    {
+                        case Keys.Up:
+                            if (O > W)
+                            {
+                                O--;
+                            }
+                            break;
+                        case Keys.Down:
+                            if (O < 5)
+                            {
+                                O++;
+                            }
+                            break;
+                    }
+                    switch (O)
+                    {
+                        case 1:
+                            if (O1 == s8)
+                            {
+                                dead = true;
+                            }
+                            else
+                            {
+                                O1 = ">";
+                            }
+                            break;
+                        case 2:
+                            if (O2 == s8)
+                            {
+                                dead = true;
+                            }
+                            else
+                            {
+                                O2 = ">";
+                            }
+                            break;
+                        case 3:
+                            if (O3 == s8)
+                            {
+                                dead = true;
+                            }
+                            else
+                            {
+                                O3 = ">";
+                            }
+                            break;
+                        case 4:
+                            if (O4 == s8)
+                            {
+                                dead = true;
+                            }
+                            else
+                            {
+                                O4 = ">";
+                            }
+                            break;
+                        case 5:
+                            if (O5 == s8)
+                            {
+                                dead = true;
+                            }
+                            else
+                            {
+                                O5 = ">";
+                            }
+                            break;
+                    }
+                
                 }
-                if (b81 == true)
+                if (sf0 != O)
                 {
-                    O1 = s8;
+                    switch (sf0)
+                    {
+                        case 1:
+                            if (O1 != s8 || s1.StartsWith(s8) == false)
+                            {
+                                O1 = " ";
+                            }
+                            break;
+                        case 2:
+                            if (O2 != s8 || s2.StartsWith(s8) == false)
+                            {
+                                O2 = " ";
+                            }
+                            break;
+                        case 3:
+                            if (O3 != s8 || s3.StartsWith(s8) == false)
+                            {
+                                O3 = " ";
+                            }
+                            break;
+                        case 4:
+                            if (O4 != s8 || s4.StartsWith(s8) == false)
+                            {
+                                O4 = " ";
+                            }
+                            break;
+                        case 5:
+                            if (O5 != s8 || s5.StartsWith(s8) == false)
+                            {
+                                O5 = " ";
+                            }
+                            break;
+                    }
                 }
-                else if (b81 == false && O != 1)
-                {
-                    O1 = " ";
-                }
-                if (b82 == true)
-                {
-                    O2 = s8;
-                }
-                else if (b82 == false && O != 2)
-                {
-                    O2 = " ";
-                }
-                if (b83 == true)
-                {
-                    O3 = s8;
-                }
-                else if (b83 == false && O != 3)
-                {
-                    O3 = " ";
-                }
-                if (b84 == true)
-                {
-                    O4 = s8;
-                }
-                else if (b84 == false && O != 4)
-                {
-                    O4 = " ";
-                }
-                if (b85 == true)
-                {
-                    O5 = s8;
-                }
-                else if (b85 == false && O != 5)
-                {
-                    O5 = " ";
-                }
-                switch (O)
-                {
-                    case 1:
-                        O1 = ">";
-                        break;
-                    case 2:
-                        O2 = ">";
-                        break;
-                    case 3:
-                        O3 = ">";
-                        break;
-                    case 4:
-                        O4 = ">";
-                        break;
-                    case 5:
-                        O5 = ">";
-                        break;
-                }
-                //if(O1 != s8 || != ">")
                 textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
                 if (menu == 0)
                 {
@@ -491,7 +520,6 @@ namespace GAME
                     }
                 }
             }
-        
             return base.ProcessCmdKey(ref msg, keyData);
         }
     }
