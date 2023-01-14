@@ -505,10 +505,14 @@ namespace GAME
                             menu = 0;
                             break;
                         case 4:
-
+                            
                             break;
                         case 5:
-
+                            var formabout = new Form4();
+                            formabout.Show(this);
+                            this.clear_cursor(0);
+                            O = 2;
+                            menu = 0;
                             break;
                     }
                 }
