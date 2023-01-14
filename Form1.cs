@@ -626,7 +626,6 @@ namespace GAME
                             textBox1.Text = "         setting" + "\r\n" + " " + "\r\n" + O4 + s3 + "\r\n" + " " + "\r\n" + O5 + "          <back";
                             break;
                         case 5:
-
                             break;
                     }
                 }
