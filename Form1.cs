@@ -64,11 +64,7 @@ namespace GAME
             }
             if (dead == true)
             {
-                O1 = " ";
-                O2 = " ";
-                O3 = " ";
-                O4 = " ";
-                O5 = " ";
+                this.clear_cursor(0);
                 s1 = "";
                 s2 = "";
                 s3 = "";
@@ -94,11 +90,7 @@ namespace GAME
                     Gs = 25;
                     Thread.Sleep(5000);
                     dead = false;
-                    O1 = " ";
-                    O2 = " ";
-                    O3 = " ";
-                    O4 = " ";
-                    O5 = " ";
+                    this.clear_cursor(0);
                     s1 = "";
                     s2 = "";
                     s3 = "";
@@ -347,11 +339,8 @@ namespace GAME
                 welcome.Enabled = false;
                 menu = 0;
                 O_TF = true;
-                O1 = " ";
+                this.clear_cursor(0);
                 O2 = ">";
-                O3 = " ";
-                O4 = " ";
-                O5 = " ";
                 O = 2;
                 W = 2;
                 textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
@@ -500,11 +489,8 @@ namespace GAME
                             s4 = "";
                             s5 = "";
                             O = 3;
-                            O1 = " ";
-                            O2 = " ";
+                            this.clear_cursor(0);
                             O3 = ">";
-                            O4 = " ";
-                            O5 = " ";
                             W = 1;
                             textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
                             menu = 22;
@@ -523,6 +509,14 @@ namespace GAME
                 }
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+        private void clear_cursor(int clear)
+        {
+            O1 = " ";
+            O2 = " ";
+            O3 = " ";
+            O4 = " ";
+            O5 = " ";
         }
     }
 }
