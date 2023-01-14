@@ -492,7 +492,7 @@ namespace GAME
                             this.clear_cursor(0);
                             O3 = ">";
                             W = 1;
-                            textBox1.Text = s1 + "\r\n" + s2 + "\r\n" + O3 + ">" + "\r\n" + s4 + "\r\n" + s5;
+                            textBox1.Text = s1 + "\r\n" + s2 + "\r\n" +">" + "\r\n" + s4 + "\r\n" + s5;
                             menu = 22;
                             sgt = 0;
                             speed.Enabled = true;
