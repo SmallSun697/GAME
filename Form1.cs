@@ -345,7 +345,7 @@ namespace GAME
             else
             {
                 welcome.Enabled = false;
-                menu = O;
+                menu = 0;
                 O_TF = true;
                 O1 = " ";
                 O2 = ">";
@@ -356,7 +356,6 @@ namespace GAME
                 W = 2;
                 textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
             }
-            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -438,7 +437,6 @@ namespace GAME
                             }
                             break;
                     }
-                
                 }
                 if (sf0 != O)
                 {
@@ -491,6 +489,11 @@ namespace GAME
                     switch (menu)
                     {
                         case 2:
+                            sg1 = "";
+                            sg2 = "";
+                            sg3 = "";
+                            sg4 = "";
+                            sg5 = "";
                             s1 = "";
                             s2 = "";
                             s3 = "";
@@ -509,7 +512,6 @@ namespace GAME
                             speed.Enabled = true;
                             break;
                         case 3:
-
                             break;
                         case 4:
 
