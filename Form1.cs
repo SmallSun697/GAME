@@ -159,7 +159,7 @@ namespace GAME
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (O_TF == true)
+/*            if (O_TF == true)
             {
                 switch (e.KeyCode)
                 {
@@ -279,7 +279,7 @@ namespace GAME
                     }
                 }
             }
-        }
+*/        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -371,16 +371,127 @@ namespace GAME
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            switch (keyData)
+            if (O_TF == true)
             {
-                case Keys.Up:
-                    POS = POS + 1;
-                    break;
-                case Keys.Down:
-                    POS = POS + -1;
-                    break;
+                switch (keyData)
+                {
+                    case Keys.Up:
+                        if (O > W)
+                        {
+                            O--;
+                        }
+                        break;
+                    case Keys.Down:
+                        if (O < 5)
+                        {
+                            O++;
+                        }
+                        break;
+                }
+                if (b81 == true)
+                {
+                    O1 = s8;
+                }
+                else if (b81 == false && O != 1)
+                {
+                    O1 = " ";
+                }
+                if (b82 == true)
+                {
+                    O2 = s8;
+                }
+                else if (b82 == false && O != 2)
+                {
+                    O2 = " ";
+                }
+                if (b83 == true)
+                {
+                    O3 = s8;
+                }
+                else if (b83 == false && O != 3)
+                {
+                    O3 = " ";
+                }
+                if (b84 == true)
+                {
+                    O4 = s8;
+                }
+                else if (b84 == false && O != 4)
+                {
+                    O4 = " ";
+                }
+                if (b85 == true)
+                {
+                    O5 = s8;
+                }
+                else if (b85 == false && O != 5)
+                {
+                    O5 = " ";
+                }
+                switch (O)
+                {
+                    case 1:
+                        O1 = ">";
+                        break;
+                    case 2:
+                        O2 = ">";
+                        break;
+                    case 3:
+                        O3 = ">";
+                        break;
+                    case 4:
+                        O4 = ">";
+                        break;
+                    case 5:
+                        O5 = ">";
+                        break;
+                }
+                //if(O1 != s8 || != ">")
+                textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
+                if (menu == 0)
+                {
+                    switch (keyData)
+                    {
+                        case Keys.Space:
+                            menu = O;
+                            break;
+                    }
+                }
+                if (menu != 0)
+                {
+                    switch (menu)
+                    {
+                        case 2:
+                            s1 = "";
+                            s2 = "";
+                            s3 = "";
+                            s4 = "";
+                            s5 = "";
+                            O = 3;
+                            O1 = " ";
+                            O2 = " ";
+                            O3 = ">";
+                            O4 = " ";
+                            O5 = " ";
+                            W = 1;
+                            textBox1.Text = O1 + s1 + "\r\n" + O2 + s2 + "\r\n" + O3 + s3 + "\r\n" + O4 + s4 + "\r\n" + O5 + s5;
+                            menu = 22;
+                            sgt = 0;
+                            speed.Enabled = true;
+                            break;
+                        case 3:
+
+                            break;
+                        case 4:
+
+                            break;
+                        case 5:
+
+                            break;
+                    }
+                }
             }
-            textBox1.Text = POS.ToString();
+        
             return base.ProcessCmdKey(ref msg, keyData);
         }
     }
