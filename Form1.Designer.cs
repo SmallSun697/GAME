@@ -29,16 +29,36 @@ namespace GAME
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.welcome = new System.Windows.Forms.Timer(this.components);
+            this.speed = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Courier New", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(483, 155);
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(512, 162);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TabStop = false;
+            this.textBox1.WordWrap = false;
+            // 
+            // welcome
+            // 
+            this.welcome.Interval = 20;
+            this.welcome.Tick += new System.EventHandler(this.welcome_Tick);
+            // 
+            // speed
+            // 
+            this.speed.Interval = 200;
+            this.speed.Tick += new System.EventHandler(this.speed_Tick);
             // 
             // flying
             // 
@@ -46,9 +66,10 @@ namespace GAME
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(507, 178);
+            this.ClientSize = new System.Drawing.Size(536, 186);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "flying";
             this.Text = "flying";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -61,6 +82,8 @@ namespace GAME
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Timer welcome;
+        private System.Windows.Forms.Timer speed;
     }
 }
 
