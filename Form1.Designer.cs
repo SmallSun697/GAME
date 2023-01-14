@@ -33,6 +33,8 @@ namespace GAME
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.welcome = new System.Windows.Forms.Timer(this.components);
             this.speed = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.rBarrier = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // textBox1
@@ -44,10 +46,14 @@ namespace GAME
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Location = new System.Drawing.Point(9, 10);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Location = new System.Drawing.Point(9, 10);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(512, 162);
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(363, 125);
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(363, 125);
             this.textBox1.TabIndex = 0;
@@ -56,6 +62,13 @@ namespace GAME
             // 
             // welcome
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 300;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             this.welcome.Interval = 20;
             this.welcome.Tick += new System.EventHandler(this.welcome_Tick);
@@ -65,6 +78,11 @@ namespace GAME
             this.speed.Interval = 200;
             this.speed.Tick += new System.EventHandler(this.speed_Tick);
             // 
+            // rBarrier
+            // 
+            this.rBarrier.Interval = 3000;
+            this.rBarrier.Tick += new System.EventHandler(this.rBarrier_Tick);
+            // 
             // flying
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -73,9 +91,11 @@ namespace GAME
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(536, 186);
             this.ClientSize = new System.Drawing.Size(380, 142);
+            this.ClientSize = new System.Drawing.Size(380, 142);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "flying";
             this.Text = "flying";
@@ -91,6 +111,8 @@ namespace GAME
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer welcome;
         private System.Windows.Forms.Timer speed;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer rBarrier;
     }
 }
 
