@@ -19,12 +19,12 @@ namespace GAME
         }
         //show
         string s1 = "", s2 = "", s3 = "", s4 = "", s5 = "";
-        //for welcome
+        //welcome
         int iw1 = 25, iw2 = 28, iw3 = 31, iw4 = 34, iw5 = 37;
         int W;
         //選擇
         int menu;
-        //for 0 move
+        //0 move
         bool O_TF;
         int O = 2;
         string O1 = " ", O2 = " ", O3 = " ", O4 = " ", O5 = " ";
@@ -72,6 +72,7 @@ namespace GAME
                 s5 = "";
                 if (Gs > 0)
                 {
+                    textBox1.Enabled = true;
                     textBox1.BackColor = Color.Black;
                     textBox1.ForeColor = Color.Red;
                     for (int a = Gs; a > 0; a--)
@@ -106,12 +107,84 @@ namespace GAME
                     iw3 = 31;
                     iw4 = 34;
                     iw5 = 37;
+                    textBox1.Enabled = false;
                     speed.Enabled = false;
                     welcome.Enabled = true;
                     return;
                 }
             }
-            p8 = R8.Next(-1, 8);
+            if (sd == 1)
+            {
+                p8 = R8.Next(0, 90);
+                if (p8 < 12)
+                {
+                    p8 = 1;
+                }
+                else if (p8 < 27)
+                {
+                    p8 = 2;
+                }
+                else if (p8 < 40)
+                {
+                    p8 = 3;
+                }
+                else if (p8 > 80)
+                {
+                    p8 = 4;
+                }
+                else if (p8 > 62)
+                {
+                    p8 = 5;
+                }
+            }
+            if (sd == 2)
+            {
+                p8 = R8.Next(0, 70);
+                if (p8 < 12)
+                {
+                    p8 = 1;
+                }
+                else if (p8 < 25)
+                {
+                    p8 = 2;
+                }
+                else if (p8 < 40)
+                {
+                    p8 = 3;
+                }
+                else if (p8 > 61)
+                {
+                    p8 = 4;
+                }
+                else if (p8 > 54)
+                {
+                    p8 = 5;
+                }
+            }
+            if (sd == 3)
+            {
+                p8 = R8.Next(0, 55);
+                if (p8 < 11)
+                {
+                    p8 = 1;
+                }
+                else if (p8 < 20)
+                {
+                    p8 = 2;
+                }
+                else if (p8 < 30)
+                {
+                    p8 = 3;
+                }
+                else if (p8 > 45)
+                {
+                    p8 = 4;
+                }
+                else if (p8 > 34)
+                {
+                    p8 = 5;
+                }
+            }
             if (menu == 22)
             {
                 //"                             "
