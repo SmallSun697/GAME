@@ -498,6 +498,11 @@ namespace GAME
                             speed.Enabled = true;
                             break;
                         case 3:
+                            var formnum = new Form3();
+                            formnum.Show(this);
+                            this.clear_cursor(0);
+                            O = 2;
+                            menu = 0;
                             break;
                         case 4:
 
