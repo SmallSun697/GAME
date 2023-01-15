@@ -47,6 +47,8 @@ namespace GAME
         int sd;
         //de bug
         int d1 = 0;
+        //Mica effect
+        Boolean Mica = false;
 
         private void speed_Tick(object sender, EventArgs e)
         {
@@ -397,8 +399,16 @@ namespace GAME
 
         private void welcome_Tick(object sender, EventArgs e)
         {
-            textBox1.BackColor = Color.White;
-            textBox1.ForeColor = Color.Black;
+            if (Mica == false)
+            {
+                textBox1.BackColor = Color.White;
+                textBox1.ForeColor = Color.Black;
+            }
+            else
+            {
+                textBox1.BackColor = Color.Black;
+                textBox1.ForeColor = Color.White;
+            }
             if (iw5 != 0)
             {
                 if (iw1 != 0)
@@ -472,6 +482,30 @@ namespace GAME
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            if (keyData == Keys.M)
+            {
+
+                switch (Mica)
+                {
+                    case true:
+                        Mica = false;
+                        break;
+                    case false:
+                        Mica = true;
+                        break;
+                }
+                
+                if (Mica == false)
+                {
+                    textBox1.BackColor = Color.White;
+                    textBox1.ForeColor = Color.Black;
+                }
+                else
+                {
+                    textBox1.BackColor = Color.Black;
+                    textBox1.ForeColor = Color.White;
+                }
+            }
             if (O_TF == true)
             {
                 sf0 = O;
