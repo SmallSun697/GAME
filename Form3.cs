@@ -21,5 +21,10 @@ namespace GAME
         {
             this.CenterToParent();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
