@@ -33,6 +33,7 @@ namespace GAME
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,11 +68,23 @@ namespace GAME
             this.label2.TabIndex = 2;
             this.label2.Text = "Press ↓ to move down";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 16F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(12, 234);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(326, 28);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Press M to enable mica mode";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 251);
+            this.ClientSize = new System.Drawing.Size(380, 280);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -92,5 +105,6 @@ namespace GAME
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
