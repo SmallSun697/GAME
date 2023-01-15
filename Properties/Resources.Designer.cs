@@ -63,9 +63,9 @@ namespace GAME.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
-        internal static System.Drawing.Bitmap 未命名專案_AdobeExpress {
+        internal static System.Drawing.Bitmap GIF {
             get {
-                object obj = ResourceManager.GetObject("未命名專案_AdobeExpress", resourceCulture);
+                object obj = ResourceManager.GetObject("GIF", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
