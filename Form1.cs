@@ -45,6 +45,8 @@ namespace GAME
         int Gs = 25;
         //設定
         int sd;
+        //de bug
+        int d1 = 0;
 
         private void speed_Tick(object sender, EventArgs e)
         {
@@ -588,6 +590,7 @@ namespace GAME
                 {
                     if (O4 == ">")
                     {
+                        d1 = 1;
                         switch (keyData)
                         {
                             case Keys.Left:
@@ -640,6 +643,8 @@ namespace GAME
                                 menu = 0;
                                 textBox1.Text = s1 + "\r\n" + s2 + "\r\n" + s3 + "\r\n" + s4 + "\r\n" + s5;
                                 welcome.Enabled = true;
+                                d1 = 0;
+                                menu = 0;
                                 break;
                         }
                     }
@@ -681,7 +686,7 @@ namespace GAME
                             var formnum = new Form3();
                             formnum.Show(this);
                             this.clear_cursor(0);
-                            O = 2;
+                            O = 3;
                             menu = 0;
                             break;
 
@@ -704,11 +709,14 @@ namespace GAME
                             textBox1.Text = "         setting" + "\r\n" + " " + "\r\n" + O4 + s3 + "\r\n" + " " + "\r\n" + O5 + "          <back";
                             break;
                         case 5:
-                            var formabout = new Form4();
-                            formabout.Show(this);
-                            this.clear_cursor(0);
-                            O = 2;
-                            menu = 0;
+                            if (d1 == 0)
+                            {
+                                var formabout = new Form4();
+                                formabout.Show(this);
+                                this.clear_cursor(0);
+                                O = 5;
+                                menu = 0;
+                            }
                             break;
                     }
                 }

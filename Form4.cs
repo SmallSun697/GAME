@@ -21,5 +21,10 @@ namespace GAME
         {
             this.CenterToParent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
