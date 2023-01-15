@@ -29,6 +29,7 @@ namespace GAME
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -52,7 +53,8 @@ namespace GAME
             this.ClientSize = new System.Drawing.Size(284, 163);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form4";
             this.Text = "Form4";
