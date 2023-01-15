@@ -645,6 +645,7 @@ namespace GAME
                                 welcome.Enabled = true;
                                 d1 = 0;
                                 menu = 0;
+                                O = 4;
                                 break;
                         }
                     }
