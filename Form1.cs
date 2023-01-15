@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-
+//debug 重傳:)
 namespace GAME
 {
     public partial class flying : Form
